@@ -1,4 +1,4 @@
-# Developer Monitor
+# Developer Tools
 
 Real-time Docker container log viewer and management tool for developers using Docker Desktop.
 

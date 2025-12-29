@@ -80,14 +80,14 @@ Management scripts are available for Windows and Linux/macOS:
 
 All settings are configured via environment variables in `.env`:
 
-| Variable                | Default     | Description             |
-| ----------------------- | ----------- | ----------------------- |
-| `DOZZLE_PORT`           | `9999`      | Web UI port             |
-| `DOZZLE_HOSTNAME`       | `localhost` | Display name in UI      |
+| Variable                | Default     | Description              |
+| ----------------------- | ----------- | ------------------------ |
+| `DOZZLE_PORT`           | `9999`      | Web UI port              |
+| `DOZZLE_HOSTNAME`       | `localhost` | Display name in UI       |
 | `DOZZLE_ENABLE_ACTIONS` | `true`      | Allow start/stop/restart |
-| `DOZZLE_ENABLE_SHELL`   | `true`      | Allow shell access      |
-| `DOZZLE_NO_ANALYTICS`   | `true`      | Disable usage tracking  |
-| `DOZZLE_AUTH_PROVIDER`  | `none`      | Authentication mode     |
+| `DOZZLE_ENABLE_SHELL`   | `true`      | Allow shell access       |
+| `DOZZLE_NO_ANALYTICS`   | `true`      | Disable usage tracking   |
+| `DOZZLE_AUTH_PROVIDER`  | `none`      | Authentication mode      |
 
 See [.env.example](.env.example) for all options.
 

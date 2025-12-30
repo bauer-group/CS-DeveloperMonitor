@@ -69,6 +69,9 @@ Interactive container with Git, Python 3.12, and shell utilities for Git-based d
 | `gh-topics` | Manage repository topics |
 | `gh-archive` | Archive repositories by criteria |
 | `gh-workflow` | Trigger GitHub Actions workflows |
+| `gh-add-workflow` | Add workflow files to repositories |
+| `gh-clean-releases` | Clean releases and tags |
+| `gh-visibility` | Change repo visibility (public/private) |
 
 ### Tool Details
 
@@ -114,6 +117,20 @@ Interactive container with Git, Python 3.12, and shell utilities for Git-based d
 ./devtools.sh gh-workflow myorg/repo --list          # List workflows
 ./devtools.sh gh-workflow myorg/repo ci.yml          # Trigger workflow
 ./devtools.sh gh-workflow myorg/repo deploy.yml -i env=prod --wait
+
+# Add workflow files to repos
+./devtools.sh gh-add-workflow -o myorg --topic api -f ci.yml
+./devtools.sh gh-add-workflow myorg/repo -f deploy.yml --skip-existing
+
+# Clean releases and tags
+./devtools.sh gh-clean-releases myorg/repo --list    # List releases/tags
+./devtools.sh gh-clean-releases myorg/repo --all --dry-run
+./devtools.sh gh-clean-releases -o myorg --topic old --prereleases
+
+# Change repository visibility
+./devtools.sh gh-visibility myorg/repo --public
+./devtools.sh gh-visibility -o myorg --topic open-source --public --dry-run
+./devtools.sh gh-visibility -o myorg --current private --list
 ```
 
 ### Inside the Container
@@ -135,6 +152,9 @@ Interactive container with Git, Python 3.12, and shell utilities for Git-based d
 - `git-rewrite-commits.py` - Pattern-based commit message rewriting
 - `gh-topic-manager.py` - Manage repository topics
 - `gh-archive-repos.py` - Archive repositories by criteria
+- `gh-add-workflow.py` - Add workflow files to repos
+- `gh-clean-releases.py` - Clean releases and tags
+- `gh-visibility.py` - Change repository visibility
 
 **Pre-configured Git Aliases:**
 | Alias | Command |
@@ -209,6 +229,9 @@ DeveloperTools/
 │   │       ├── gh-topic-manager.py
 │   │       ├── gh-archive-repos.py
 │   │       ├── gh-trigger-workflow.sh
+│   │       ├── gh-add-workflow.py
+│   │       ├── gh-clean-releases.py
+│   │       ├── gh-visibility.py
 │   │       └── help-devtools
 │   │
 │   └── dozzle/              # Container Monitor (independent)

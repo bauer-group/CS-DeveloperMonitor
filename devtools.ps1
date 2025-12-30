@@ -51,6 +51,9 @@ function Show-Help {
     Write-Host "    gh-topics [options]     Manage repository topics"
     Write-Host "    gh-archive [options]    Archive repositories"
     Write-Host "    gh-workflow [options]   Trigger GitHub Actions workflows"
+    Write-Host "    gh-add-workflow [opts]  Add workflow files to repos"
+    Write-Host "    gh-clean-releases       Clean releases and tags"
+    Write-Host "    gh-visibility [opts]    Change repo visibility (public/private)"
     Write-Host ""
     Write-Host "  General:" -ForegroundColor Cyan
     Write-Host "    help                    Show this help"
@@ -238,6 +241,24 @@ function Invoke-GhTriggerWorkflow {
     Invoke-Script -Script "gh-trigger-workflow.sh" -ScriptArgs $WorkflowArgs
 }
 
+# GitHub Add Workflow
+function Invoke-GhAddWorkflow {
+    param([string[]]$AddWorkflowArgs)
+    Invoke-Script -Script "gh-add-workflow.py" -ScriptArgs $AddWorkflowArgs
+}
+
+# GitHub Clean Releases
+function Invoke-GhCleanReleases {
+    param([string[]]$CleanArgs)
+    Invoke-Script -Script "gh-clean-releases.py" -ScriptArgs $CleanArgs
+}
+
+# GitHub Visibility
+function Invoke-GhVisibility {
+    param([string[]]$VisibilityArgs)
+    Invoke-Script -Script "gh-visibility.py" -ScriptArgs $VisibilityArgs
+}
+
 # Version
 function Show-Version {
     Write-Host "DevTools v1.0.0" -ForegroundColor White
@@ -246,7 +267,7 @@ function Show-Version {
     Write-Host "Components:"
     Write-Host "  - DevTools Runtime Container (Git, Python, Shell)"
     Write-Host "  - Git Tools (stats, cleanup, changelog, release, lfs-migrate, history-clean, branch-rename, split-repo, rewrite-commits)"
-    Write-Host "  - GitHub Tools (gh-create, gh-topics, gh-archive, gh-workflow)"
+    Write-Host "  - GitHub Tools (gh-create, gh-topics, gh-archive, gh-workflow, gh-add-workflow, gh-clean-releases, gh-visibility)"
 }
 
 # Hauptlogik
@@ -308,6 +329,15 @@ switch ($Command.ToLower()) {
     }
     "gh-workflow" {
         Invoke-GhTriggerWorkflow -WorkflowArgs $Arguments
+    }
+    "gh-add-workflow" {
+        Invoke-GhAddWorkflow -AddWorkflowArgs $Arguments
+    }
+    "gh-clean-releases" {
+        Invoke-GhCleanReleases -CleanArgs $Arguments
+    }
+    "gh-visibility" {
+        Invoke-GhVisibility -VisibilityArgs $Arguments
     }
     { $_ -in "version", "--version", "-v" } {
         Show-Version

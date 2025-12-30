@@ -53,6 +53,9 @@ show_help() {
     echo "    gh-topics [options]     Manage repository topics"
     echo "    gh-archive [options]    Archive repositories"
     echo "    gh-workflow [options]   Trigger GitHub Actions workflows"
+    echo "    gh-add-workflow [opts]  Add workflow files to repos"
+    echo "    gh-clean-releases       Clean releases and tags"
+    echo "    gh-visibility [opts]    Change repo visibility (public/private)"
     echo ""
     echo -e "  ${CYAN}General:${NC}"
     echo "    help                    Show this help"
@@ -213,6 +216,21 @@ gh_trigger_workflow() {
     run_script "gh-trigger-workflow.sh" "$@"
 }
 
+# GitHub Add Workflow
+gh_add_workflow() {
+    run_script "gh-add-workflow.py" "$@"
+}
+
+# GitHub Clean Releases
+gh_clean_releases() {
+    run_script "gh-clean-releases.py" "$@"
+}
+
+# GitHub Visibility
+gh_visibility() {
+    run_script "gh-visibility.py" "$@"
+}
+
 # Version
 show_version() {
     echo -e "${BOLD}DevTools${NC} v1.0.0"
@@ -221,7 +239,7 @@ show_version() {
     echo "Components:"
     echo "  - DevTools Runtime Container (Git, Python, Shell)"
     echo "  - Git Tools (stats, cleanup, changelog, release, lfs-migrate, history-clean, branch-rename, split-repo, rewrite-commits)"
-    echo "  - GitHub Tools (gh-create, gh-topics, gh-archive, gh-workflow)"
+    echo "  - GitHub Tools (gh-create, gh-topics, gh-archive, gh-workflow, gh-add-workflow, gh-clean-releases, gh-visibility)"
 }
 
 # Hauptlogik
@@ -278,6 +296,15 @@ main() {
             ;;
         gh-workflow)
             gh_trigger_workflow "$@"
+            ;;
+        gh-add-workflow)
+            gh_add_workflow "$@"
+            ;;
+        gh-clean-releases)
+            gh_clean_releases "$@"
+            ;;
+        gh-visibility)
+            gh_visibility "$@"
             ;;
         version|--version|-v)
             show_version

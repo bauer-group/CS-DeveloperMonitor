@@ -23,7 +23,7 @@ jobs:
   validate-compose:
     uses: bauer-group/automation-templates/.github/workflows/modules-validate-compose.yml@main
     with:
-      compose-file: 'docker-compose.yml'
+      compose-file: 'services/dozzle/docker-compose.yml'
       env-template: |
         {
           "TIME_ZONE": "UTC",
@@ -34,7 +34,7 @@ jobs:
     uses: bauer-group/automation-templates/.github/workflows/modules-validate-shellscript.yml@main
     with:
       scan-directory: '.'
-      severity: 'warning'
+      severity: 'error'
 
   release:
     needs: [validate-compose, validate-scripts]

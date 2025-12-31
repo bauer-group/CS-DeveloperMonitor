@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/bauer-group/CS-DeveloperTools/compare/v0.2.0...v0.3.0) (2025-12-31)
+
+
+### Features
+
+* Add scripts for GitHub repository management and contributor statistics ([df98e84](https://github.com/bauer-group/CS-DeveloperTools/commit/df98e8421d7ec2c832b92e768f53bb2912c80d40))
+
 # [0.2.0](https://github.com/bauer-group/CS-DeveloperTools/compare/v0.1.0...v0.2.0) (2025-12-30)
 
 

@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/bauer-group/CS-DeveloperTools/compare/v0.3.0...v0.3.1) (2025-12-31)
+
+
+### Bug Fixes
+
+* Update Dockerfile for Python version and enhance metadata labels ([34ed5aa](https://github.com/bauer-group/CS-DeveloperTools/commit/34ed5aac5ec898f8d63a30b9886b786739f1448f))
+
 # [0.3.0](https://github.com/bauer-group/CS-DeveloperTools/compare/v0.2.0...v0.3.0) (2025-12-31)
 
 
